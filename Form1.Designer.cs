@@ -105,14 +105,16 @@
             // menuAdd
             // 
             this.menuAdd.Name = "menuAdd";
-            this.menuAdd.Size = new System.Drawing.Size(192, 26);
+            this.menuAdd.Size = new System.Drawing.Size(224, 26);
             this.menuAdd.Text = "Создать";
+            this.menuAdd.Click += new System.EventHandler(this.menuAdd_Click);
             // 
             // menuOpen
             // 
             this.menuOpen.Name = "menuOpen";
-            this.menuOpen.Size = new System.Drawing.Size(192, 26);
+            this.menuOpen.Size = new System.Drawing.Size(224, 26);
             this.menuOpen.Text = "Открыть";
+            this.menuOpen.Click += new System.EventHandler(this.menuOpen_Click);
             // 
             // menuSave
             // 
@@ -123,8 +125,9 @@
             // menuSaveAs
             // 
             this.menuSaveAs.Name = "menuSaveAs";
-            this.menuSaveAs.Size = new System.Drawing.Size(192, 26);
+            this.menuSaveAs.Size = new System.Drawing.Size(224, 26);
             this.menuSaveAs.Text = "Сохранить как";
+            this.menuSaveAs.Click += new System.EventHandler(this.menuSaveAs_Click);
             // 
             // Exit
             // 
@@ -150,50 +153,58 @@
             // menuCancel
             // 
             this.menuCancel.Name = "menuCancel";
-            this.menuCancel.Size = new System.Drawing.Size(176, 26);
+            this.menuCancel.Size = new System.Drawing.Size(224, 26);
             this.menuCancel.Text = "Отмена";
+            this.menuCancel.Click += new System.EventHandler(this.menuCancel_Click);
             // 
             // menuRepeat
             // 
             this.menuRepeat.Name = "menuRepeat";
-            this.menuRepeat.Size = new System.Drawing.Size(176, 26);
+            this.menuRepeat.Size = new System.Drawing.Size(224, 26);
             this.menuRepeat.Text = "Возврат";
+            this.menuRepeat.Click += new System.EventHandler(this.menuRepeat_Click);
             // 
             // menuCut
             // 
             this.menuCut.Name = "menuCut";
-            this.menuCut.Size = new System.Drawing.Size(176, 26);
+            this.menuCut.Size = new System.Drawing.Size(224, 26);
             this.menuCut.Text = "Вырезать";
+            this.menuCut.Click += new System.EventHandler(this.menuCut_Click);
             // 
             // menuCopy
             // 
             this.menuCopy.Name = "menuCopy";
-            this.menuCopy.Size = new System.Drawing.Size(176, 26);
+            this.menuCopy.Size = new System.Drawing.Size(224, 26);
             this.menuCopy.Text = "Копировать";
+            this.menuCopy.Click += new System.EventHandler(this.menuCopy_Click);
             // 
             // menuInsert
             // 
             this.menuInsert.Name = "menuInsert";
-            this.menuInsert.Size = new System.Drawing.Size(176, 26);
+            this.menuInsert.Size = new System.Drawing.Size(224, 26);
             this.menuInsert.Text = "Вставить ";
+            this.menuInsert.Click += new System.EventHandler(this.menuInsert_Click);
             // 
             // menuDelete
             // 
             this.menuDelete.Name = "menuDelete";
-            this.menuDelete.Size = new System.Drawing.Size(176, 26);
+            this.menuDelete.Size = new System.Drawing.Size(224, 26);
             this.menuDelete.Text = "Удалить";
+            this.menuDelete.Click += new System.EventHandler(this.menuDelete_Click);
             // 
             // menuDeleteAll
             // 
             this.menuDeleteAll.Name = "menuDeleteAll";
-            this.menuDeleteAll.Size = new System.Drawing.Size(176, 26);
+            this.menuDeleteAll.Size = new System.Drawing.Size(224, 26);
             this.menuDeleteAll.Text = "Удалить все";
+            this.menuDeleteAll.Click += new System.EventHandler(this.menuDeleteAll_Click);
             // 
             // Start
             // 
             this.Start.Name = "Start";
             this.Start.Size = new System.Drawing.Size(55, 24);
             this.Start.Text = "Пуск";
+            this.Start.Click += new System.EventHandler(this.Start_Click);
             // 
             // Reference
             // 
@@ -207,8 +218,9 @@
             // menuReference
             // 
             this.menuReference.Name = "menuReference";
-            this.menuReference.Size = new System.Drawing.Size(197, 26);
+            this.menuReference.Size = new System.Drawing.Size(224, 26);
             this.menuReference.Text = "Вызов справки";
+            this.menuReference.Click += new System.EventHandler(this.menuReference_Click_1);
             // 
             // menuAbout
             // 
@@ -450,6 +462,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "Compiler";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.toolStrip1.ResumeLayout(false);

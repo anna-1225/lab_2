@@ -28,15 +28,12 @@ namespace new2026
         {
             statusStrip = new StatusStrip();
 
-            // Создаем метку для отображения текста
             toolStripStatusLabel = new ToolStripStatusLabel();
             toolStripStatusLabel.Text = "Готов";
             toolStripStatusLabel.TextAlign = ContentAlignment.MiddleLeft;
 
-            // Добавляем метку в строку состояния
             statusStrip.Items.Add(toolStripStatusLabel);
 
-            // Добавляем строку состояния на форму
             this.Controls.Add(statusStrip);
         }
 
@@ -47,8 +44,7 @@ namespace new2026
                 toolStripStatusLabel.Text = message;
             }
         }
-
-        private void StartButton_Click(object sender, EventArgs e)
+        private void StartButton()
         {
             UpdateStatus("Компиляция");
             txtOutput.Text = "";
@@ -102,14 +98,9 @@ namespace new2026
 
                             string output = writer.ToString();
 
-                            if (output == "")
-                            {
-                                txtOutput.Text = "Программа выполнена";
-                            }
-                            else
-                            {
-                                txtOutput.Text = output;
-                            }
+                           
+                            txtOutput.Text = output;
+                            
                         }
                         catch (Exception ex)
                         {
@@ -128,13 +119,7 @@ namespace new2026
                 txtOutput.Text = "Ошибка: " + ex.Message;
             }
         }
-
-        private void btnAdd_Click(object sender, EventArgs e)
-        {
-            txtInput.Text = "";
-        }
-
-        private void btnOpen_Click(object sender, EventArgs e)
+        private void OpenButton()
         {
             OpenFileDialog openFile = new OpenFileDialog();
             openFile.Filter = "Text Files (*.txt)|*.txt|All files (*.*)|*.*";
@@ -146,13 +131,11 @@ namespace new2026
 
             }
         }
-
-        private void Exit_Click(object sender, EventArgs e)
+        private void AddButton()
         {
-            Close();
+            txtInput.Text = "";
         }
-
-        private void btnSave_Click(object sender, EventArgs e)
+        private void SaveButton()
         {
             SaveFileDialog saveFile = new SaveFileDialog();
             saveFile.Filter = "Text Files (*.txt)|*.txt|All files (*.*)|*.*";
@@ -163,24 +146,21 @@ namespace new2026
                 System.IO.File.WriteAllText(saveFile.FileName, txtInput.Text);
             }
         }
-
-        private void btnCopy_Click(object sender, EventArgs e)
+        private void CopyButton()
         {
             if (txtInput.SelectedText != "")
             {
                 Clipboard.SetText(txtInput.SelectedText);
             }
         }
-
-        private void btnInsert_Click(object sender, EventArgs e)
+        private void InsertButton()
         {
             if (Clipboard.ContainsText())
             {
                 txtInput.Text = txtInput.Text + Clipboard.GetText();
             }
         }
-
-        private void btnCut_Click(object sender, EventArgs e)
+        private void CutButton()
         {
             if (txtInput.SelectedText != "")
             {
@@ -195,20 +175,70 @@ namespace new2026
             }
         }
 
-        private void btnCancel_Click(object sender, EventArgs e)
+        private void CancelButton()
         {
             if (txtInput.CanUndo)
             {
                 txtInput.Undo();
             }
         }
-
-        private void btnRepeat_Click(object sender, EventArgs e)
+        private void RepeatButton()
         {
             if (txtInput.CanRedo)
             {
                 txtInput.Redo();
             }
+        }
+
+        
+        private void StartButton_Click(object sender, EventArgs e)
+        {
+            StartButton();
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            AddButton();
+        }
+
+        private void btnOpen_Click(object sender, EventArgs e)
+        {
+            OpenButton();
+        }
+
+        private void Exit_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            SaveButton();
+        }
+
+        private void btnCopy_Click(object sender, EventArgs e)
+        {
+            CopyButton();
+        }
+
+        private void btnInsert_Click(object sender, EventArgs e)
+        {
+            InsertButton();
+        }
+
+        private void btnCut_Click(object sender, EventArgs e)
+        {
+            CutButton();
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            CancelButton();
+        }
+
+        private void btnRepeat_Click(object sender, EventArgs e)
+        {
+            RepeatButton();
         }
 
         private void btnSize_ValueChanged(object sender, EventArgs e)
@@ -299,9 +329,106 @@ namespace new2026
 
         }
 
-        private void statusStrip_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        private void menuAdd_Click(object sender, EventArgs e)
         {
+            AddButton();
+        }
 
+        private void menuOpen_Click(object sender, EventArgs e)
+        {
+            OpenButton();
+        }
+
+        private void menuSaveAs_Click(object sender, EventArgs e)
+        {
+            SaveButton();
+        }
+
+        private void menuCancel_Click(object sender, EventArgs e)
+        {
+            CancelButton();
+        }
+
+        private void menuRepeat_Click(object sender, EventArgs e)
+        {
+            RepeatButton();
+        }
+
+        private void menuCut_Click(object sender, EventArgs e)
+        {
+            CutButton();
+        }
+
+        private void menuCopy_Click(object sender, EventArgs e)
+        {
+            CopyButton();
+        }
+
+        private void menuInsert_Click(object sender, EventArgs e)
+        {
+            InsertButton();
+        }
+
+        private void menuDelete_Click(object sender, EventArgs e)
+        {
+            if (txtInput.SelectedText != "")
+            {
+                int start = txtInput.SelectionStart;
+                int length = txtInput.SelectionLength;
+                txtInput.Text = txtInput.Text.Remove(start, length);
+                txtInput.SelectionStart = start;
+            }
+        }
+
+        private void menuDeleteAll_Click(object sender, EventArgs e)
+        {
+            txtInput.Text = "";
+        }
+
+        private void Start_Click(object sender, EventArgs e)
+        {
+            StartButton();
+        }
+
+        private void menuReference_Click_1(object sender, EventArgs e)
+        {
+            string helpText =
+                "Описание функций приложения\n" +
+
+                "Основные функции компилятора:\n" +
+                "- Запуск кода - компилирует и выполняет код\n" +
+                "- Автоматическое добавление структуры класса\n\n" +
+
+                "Работа с файлами:\n" +
+                "- Создать - очищает поле ввода\n" +
+                "- Открыть - загружает код из текстового файла\n" +
+                "- Сохранить - сохраняет код в файл\n\n" +
+
+                "Редактирование текста:\n" +
+                "- Отменить/Повторить - отмена/повтор действий\n" +
+                "- Вырезать/Копировать/Вставить - работа с буфером\n" +
+                "- Удалить/Удалить все - удаление текста\n\n" +
+
+                "Дополнительно:\n" +
+                "- Изменение размера шрифта\n" +
+                "- Смена языка интерфейса";
+
+            MessageBox.Show(helpText, "Справка по функциям",
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult result = MessageBox.Show(
+        "Вы действительно хотите выйти из приложения?",
+        "Подтверждение выхода",
+        MessageBoxButtons.YesNo,
+        MessageBoxIcon.Question);
+
+            if (result == DialogResult.No)
+            {
+                e.Cancel = true;
+            }
         }
     }
 
