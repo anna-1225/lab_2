@@ -29,84 +29,78 @@ namespace new2026
                 toolStripStatusLabel.Text = message;
             }
         }
+        private bool AskToSave()
+        {
+            if (string.IsNullOrWhiteSpace(txtInput.Text))
+                return true;
+
+            DialogResult result = MessageBox.Show(
+                "Сохранить изменения?",
+                "Подтверждение",
+                MessageBoxButtons.YesNoCancel,
+                MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                SaveButton();
+                return true;
+            }
+            else if (result == DialogResult.No)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
         private void StartButton()
         {
-            UpdateStatus("Компиляция");
-            txtOutput.Text = "";
+            UpdateStatus("Лексический анализ");
+            txtOutput.Clear();
 
             try
             {
                 string code = txtInput.Text;
+                Scanner scanner = new Scanner();
+                var tokens = scanner.Analyze(code);
 
-                if (code.Contains("Main") == false)
+                // Заголовок таблицы
+                txtOutput.AppendText("Код\tТип\t\tЛексема\t\tСтрока\tПозиция\r\n");
+                txtOutput.AppendText(new string('-', 60) + "\r\n");
+
+                bool hasErrors = false;
+
+                foreach (var token in tokens)
                 {
-                    code = "using System;\n";
-                    code = code + "class Program\n";
-                    code = code + "{\n";
-                    code = code + "    static void Main()\n";
-                    code = code + "    {\n";
-                    code = code + "        " + txtInput.Text + "\n";
-                    code = code + "    }\n";
-                    code = code + "}\n";
+                    string line = $"{token.Code}\t{token.Type}\t\t{token.Value}\t\t{token.Line}\t{token.Position}\r\n";
+                    txtOutput.AppendText(line);
+
+                    if (token.IsError)
+                        hasErrors = true;
                 }
 
-                CSharpCodeProvider compiler = new CSharpCodeProvider();
+                txtOutput.AppendText(new string('-', 60) + "\r\n");
+                txtOutput.AppendText($"Всего лексем: {tokens.Count}\r\n");
 
-                CompilerParameters parameters = new CompilerParameters();
-                parameters.GenerateExecutable = true;
-                parameters.GenerateInMemory = true;
-                parameters.ReferencedAssemblies.Add("System.dll");
-
-                CompilerResults results = compiler.CompileAssemblyFromSource(parameters, code);
-
-                if (results.Errors.Count > 0)
-                {
-                    UpdateStatus("Ошибка компиляции");
-                    foreach (CompilerError error in results.Errors)
-                    {
-                        txtOutput.Text = txtOutput.Text + "Ошибка: " + error.ErrorText + "\n";
-                    }
-                }
+                if (hasErrors)
+                    txtOutput.AppendText("Обнаружены ошибки!\r\n");
                 else
-                {
-                    MethodInfo mainMethod = results.CompiledAssembly.EntryPoint;
+                    txtOutput.AppendText("Ошибок не обнаружено\r\n");
 
-                    if (mainMethod != null)
-                    {
-                        UpdateStatus("Готово");
-                        StringWriter writer = new StringWriter();
-                        TextWriter oldOutput = Console.Out;
-                        Console.SetOut(writer);
-
-                        try
-                        {
-                            mainMethod.Invoke(null, null);
-
-                            string output = writer.ToString();
-
-                           
-                            txtOutput.Text = output;
-                            
-                        }
-                        catch (Exception ex)
-                        {
-                            UpdateStatus("Ошибка");
-                            txtOutput.Text = "Ошибка: " + ex.Message;
-                        }
-                        finally
-                        {
-                            Console.SetOut(oldOutput);
-                        }
-                    }
-                }
+                UpdateStatus(hasErrors ? "Обнаружены ошибки" : "Анализ завершен");
             }
             catch (Exception ex)
             {
                 txtOutput.Text = "Ошибка: " + ex.Message;
+                UpdateStatus("Ошибка");
             }
         }
         private void OpenButton()
         {
+            if (!AskToSave()) 
+                return;
+
             OpenFileDialog openFile = new OpenFileDialog();
             openFile.Filter = "Text Files (*.txt)|*.txt|All files (*.*)|*.*";
             UpdateStatus("Файл загружен");
@@ -120,7 +114,12 @@ namespace new2026
         }
         private void AddButton()
         {
-            txtInput.Text = "";
+            if (AskToSave())
+            {
+                txtInput.Text = "";
+                _currentFilePath = "";
+                UpdateStatus("Новый файл");
+            }
         }
         private void SaveButton()
         {

@@ -69,8 +69,8 @@
             this.Font = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
-            this.txtOutput = new System.Windows.Forms.RichTextBox();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.txtOutput = new System.Windows.Forms.RichTextBox();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnSize)).BeginInit();
@@ -89,7 +89,7 @@
             this.Language});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1153, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1153, 30);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -102,7 +102,7 @@
             this.menuSaveAs,
             this.Exit});
             this.File.Name = "File";
-            this.File.Size = new System.Drawing.Size(59, 24);
+            this.File.Size = new System.Drawing.Size(59, 26);
             this.File.Text = "Файл";
             // 
             // menuAdd
@@ -122,7 +122,7 @@
             // menuSave
             // 
             this.menuSave.Name = "menuSave";
-            this.menuSave.Size = new System.Drawing.Size(224, 26);
+            this.menuSave.Size = new System.Drawing.Size(192, 26);
             this.menuSave.Text = "Сохранить ";
             this.menuSave.Click += new System.EventHandler(this.menuSave_Click);
             // 
@@ -151,7 +151,7 @@
             this.menuDelete,
             this.menuDeleteAll});
             this.Edit.Name = "Edit";
-            this.Edit.Size = new System.Drawing.Size(74, 24);
+            this.Edit.Size = new System.Drawing.Size(74, 26);
             this.Edit.Text = "Правка";
             // 
             // menuCancel
@@ -206,7 +206,7 @@
             // Start
             // 
             this.Start.Name = "Start";
-            this.Start.Size = new System.Drawing.Size(55, 24);
+            this.Start.Size = new System.Drawing.Size(55, 26);
             this.Start.Text = "Пуск";
             this.Start.Click += new System.EventHandler(this.Start_Click);
             // 
@@ -216,7 +216,7 @@
             this.menuReference,
             this.menuAbout});
             this.Reference.Name = "Reference";
-            this.Reference.Size = new System.Drawing.Size(81, 24);
+            this.Reference.Size = new System.Drawing.Size(81, 26);
             this.Reference.Text = "Справка";
             // 
             // menuReference
@@ -238,7 +238,7 @@
             this.btnEnglish,
             this.btnRussian});
             this.Language.Name = "Language";
-            this.Language.Size = new System.Drawing.Size(57, 24);
+            this.Language.Size = new System.Drawing.Size(57, 26);
             this.Language.Text = "Язык";
             // 
             // btnEnglish
@@ -276,9 +276,9 @@
             this.btnStart,
             this.btnHelp,
             this.btnInfo});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 28);
+            this.toolStrip1.Location = new System.Drawing.Point(0, 30);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1153, 27);
+            this.toolStrip1.Size = new System.Drawing.Size(1153, 31);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -288,7 +288,7 @@
             this.btnAdd.Image = global::new2026.Properties.Resources.icons8_добавить_50;
             this.btnAdd.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(29, 24);
+            this.btnAdd.Size = new System.Drawing.Size(29, 28);
             this.btnAdd.Text = "Создать";
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
@@ -298,7 +298,7 @@
             this.btnOpen.Image = global::new2026.Properties.Resources.icons8_файл_50;
             this.btnOpen.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnOpen.Name = "btnOpen";
-            this.btnOpen.Size = new System.Drawing.Size(29, 24);
+            this.btnOpen.Size = new System.Drawing.Size(29, 28);
             this.btnOpen.Text = "Открыть";
             this.btnOpen.Click += new System.EventHandler(this.btnOpen_Click);
             // 
@@ -308,7 +308,7 @@
             this.btnSave.Image = global::new2026.Properties.Resources.icons8_сохранить_50;
             this.btnSave.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(29, 24);
+            this.btnSave.Size = new System.Drawing.Size(29, 28);
             this.btnSave.Text = "Сохранить";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
@@ -318,7 +318,7 @@
             this.btnCancel.Image = global::new2026.Properties.Resources.icons8_налево_50;
             this.btnCancel.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(29, 24);
+            this.btnCancel.Size = new System.Drawing.Size(29, 28);
             this.btnCancel.Text = "Отмена";
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
@@ -328,7 +328,7 @@
             this.btnRepeat.Image = global::new2026.Properties.Resources.icons8_направо_50;
             this.btnRepeat.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnRepeat.Name = "btnRepeat";
-            this.btnRepeat.Size = new System.Drawing.Size(29, 24);
+            this.btnRepeat.Size = new System.Drawing.Size(29, 28);
             this.btnRepeat.Text = "Возврат";
             this.btnRepeat.Click += new System.EventHandler(this.btnRepeat_Click);
             // 
@@ -338,7 +338,7 @@
             this.btnCopy.Image = global::new2026.Properties.Resources.icons8_скопировать_50__1_;
             this.btnCopy.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnCopy.Name = "btnCopy";
-            this.btnCopy.Size = new System.Drawing.Size(29, 24);
+            this.btnCopy.Size = new System.Drawing.Size(29, 28);
             this.btnCopy.Text = "Копировать";
             this.btnCopy.Click += new System.EventHandler(this.btnCopy_Click);
             // 
@@ -348,7 +348,7 @@
             this.btnCut.Image = global::new2026.Properties.Resources.icons8_вырезать_50;
             this.btnCut.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnCut.Name = "btnCut";
-            this.btnCut.Size = new System.Drawing.Size(29, 24);
+            this.btnCut.Size = new System.Drawing.Size(29, 28);
             this.btnCut.Text = "Вырезать";
             this.btnCut.Click += new System.EventHandler(this.btnCut_Click);
             // 
@@ -358,7 +358,7 @@
             this.btnInsert.Image = global::new2026.Properties.Resources.icons8_вставить_50;
             this.btnInsert.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnInsert.Name = "btnInsert";
-            this.btnInsert.Size = new System.Drawing.Size(29, 24);
+            this.btnInsert.Size = new System.Drawing.Size(29, 28);
             this.btnInsert.Text = "Вставить";
             this.btnInsert.Click += new System.EventHandler(this.btnInsert_Click);
             // 
@@ -368,7 +368,7 @@
             this.btnStart.Image = global::new2026.Properties.Resources.icons8_начало_50;
             this.btnStart.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnStart.Name = "btnStart";
-            this.btnStart.Size = new System.Drawing.Size(29, 24);
+            this.btnStart.Size = new System.Drawing.Size(29, 28);
             this.btnStart.Text = "Пуск";
             this.btnStart.Click += new System.EventHandler(this.StartButton_Click);
             // 
@@ -378,7 +378,7 @@
             this.btnHelp.Image = global::new2026.Properties.Resources.icons8_помощь_50__1_;
             this.btnHelp.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnHelp.Name = "btnHelp";
-            this.btnHelp.Size = new System.Drawing.Size(29, 24);
+            this.btnHelp.Size = new System.Drawing.Size(29, 28);
             this.btnHelp.Text = "Вызов справки";
             // 
             // btnInfo
@@ -387,7 +387,7 @@
             this.btnInfo.Image = global::new2026.Properties.Resources.icons8_информация_50;
             this.btnInfo.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnInfo.Name = "btnInfo";
-            this.btnInfo.Size = new System.Drawing.Size(29, 24);
+            this.btnInfo.Size = new System.Drawing.Size(29, 28);
             this.btnInfo.Text = "О программе";
             // 
             // txtInput
@@ -396,7 +396,7 @@
             this.txtInput.Location = new System.Drawing.Point(0, 0);
             this.txtInput.Margin = new System.Windows.Forms.Padding(0);
             this.txtInput.Name = "txtInput";
-            this.txtInput.Size = new System.Drawing.Size(1153, 507);
+            this.txtInput.Size = new System.Drawing.Size(1153, 501);
             this.txtInput.TabIndex = 2;
             this.txtInput.TabStop = false;
             this.txtInput.Text = "";
@@ -440,9 +440,9 @@
             this.panel1.Controls.Add(this.txtOutput);
             this.panel1.Controls.Add(this.txtInput);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 55);
+            this.panel1.Location = new System.Drawing.Point(0, 61);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1153, 507);
+            this.panel1.Size = new System.Drawing.Size(1153, 501);
             this.panel1.TabIndex = 7;
             // 
             // statusStrip
@@ -451,27 +451,27 @@
             this.statusStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel});
-            this.statusStrip.Location = new System.Drawing.Point(0, 317);
+            this.statusStrip.Location = new System.Drawing.Point(0, 311);
             this.statusStrip.Name = "statusStrip";
             this.statusStrip.Size = new System.Drawing.Size(1153, 26);
             this.statusStrip.TabIndex = 4;
             this.statusStrip.Text = "statusStrip1";
-            // 
-            // txtOutput
-            // 
-            this.txtOutput.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.txtOutput.Location = new System.Drawing.Point(0, 343);
-            this.txtOutput.Name = "txtOutput";
-            this.txtOutput.ReadOnly = true;
-            this.txtOutput.Size = new System.Drawing.Size(1153, 164);
-            this.txtOutput.TabIndex = 3;
-            this.txtOutput.Text = "";
             // 
             // toolStripStatusLabel
             // 
             this.toolStripStatusLabel.Name = "toolStripStatusLabel";
             this.toolStripStatusLabel.Size = new System.Drawing.Size(48, 20);
             this.toolStripStatusLabel.Text = "Готов";
+            // 
+            // txtOutput
+            // 
+            this.txtOutput.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.txtOutput.Location = new System.Drawing.Point(0, 337);
+            this.txtOutput.Name = "txtOutput";
+            this.txtOutput.ReadOnly = true;
+            this.txtOutput.Size = new System.Drawing.Size(1153, 164);
+            this.txtOutput.TabIndex = 3;
+            this.txtOutput.Text = "";
             // 
             // Form1
             // 
